@@ -1,0 +1,6 @@
+{
+  "CognitoStack": {
+    "rootgatewayEndpointB2488BC9": "https://6iurcusoye.execute-api.us-east-1.amazonaws.com/prod/",
+    "UserPoolArn": "arn:aws:cognito-idp:us-east-1:200015229140:userpool/us-east-1_v6tN0GE5K"
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "problem-name": "lastFirstInitial",
+    "problem-set": "test-problems",
+    "description": "Write a function to hold the initials of your first name and your last name and print them together."
+}

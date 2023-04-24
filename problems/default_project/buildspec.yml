@@ -1,0 +1,26 @@
+version: 0.2
+        
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    on-failure: CONTINUE
+    commands:
+      - mkdir out
+      - mvn compile -X
+  build:
+    on-failure: CONTINUE
+    commands:
+      - mvn clean test -X
+  post_build:
+    on-failure: CONTINUE
+    commands:
+      - if cp target/surefire-reports/*.txt out; then echo 0; else touch out/main.Tester.txt && echo "An error occured during compilation; Check your code for syntax errors and try again." >> out/main.Tester.txt; fi 
+
+artifacts:
+  files:
+    - out/*.txt
+  name: tester-artifacts
+  discard-paths: yes
+  s3-prefix: karin-output-staging-bucket

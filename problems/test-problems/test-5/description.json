@@ -1,0 +1,5 @@
+{
+    "problem-name": "majorTCU",
+    "problem-set": "test-problems",
+    "description": "Write a function that has a string variable to hold your major, and a string variable that is assigned to the string, TCU. Print those variables together in this format: CS, TCU"
+}

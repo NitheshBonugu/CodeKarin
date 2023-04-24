@@ -1,0 +1,46 @@
+request format:
+
+[actor] --> [request] --> [result]
+______________________________________________________________________________________________________________________________________________
+
+frontend api:
+
+	login (validation)
+______________________________________________________________________________________________________________________________________________
+
+backend api:
+
+	get user
+	get user list
+	add user
+	add user list
+	delete user
+	delete user list
+	
+	add classroom
+	get classroom
+	delete classroom
+	
+	get problem
+	add problem set
+	get problem set
+	delete problem set
+
+	add build
+	assemble build
+	execute build
+	clean build
+______________________________________________________________________________________________________________________________________________
+
+un-authenticated user:
+
+	user --> login --> success / fail
+
+	user --> [any request but login] --> DOS (denial of service)
+______________________________________________________________________________________________________________________________________________
+
+authenticated user:
+
+	user --> get requests --> database access and object list
+	professor --> add classrooms / users(students) / problems
+	admin --> add users(professor)

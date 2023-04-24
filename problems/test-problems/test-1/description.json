@@ -1,0 +1,5 @@
+{
+    "problem-name": "calPower",
+    "problem-set": "test-problems",
+    "description": "Write a function to find and print integer a to the power of integer b"
+}
