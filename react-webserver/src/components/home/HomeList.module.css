@@ -1,0 +1,41 @@
+.group {
+  display: flex;
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  cursor: pointer;
+  width: 300px;
+  height: 500px;
+}
+.about {
+  background-image: url("../../images/about.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.explore {
+  background-image: url("../../images/explore.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.contact {
+  background-image: url("../../images/contact.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.report {
+  background-image: url("../../images/report.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.login {
+  background-image: url("../../images/login.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
