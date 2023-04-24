@@ -1,0 +1,81 @@
+USE CASES:
+
+///////////////////////
+## COMPLETED ##
+///////////////////////
+
+
+Login / Edit Account
+	Actors: all
+	Actions:
+		create account (either with a student account creation link associated with a classroom OR a professor account creation link associated with an admin account)
+		Edit basic account info such as first and last name, alias, etc.
+
+
+Manage Classroom
+	Actors: professor
+	Actions:
+		add / delete classroom
+		add / delete discussion boards in classroom (see use case)
+
+
+Manage Contest / Practice
+	Actors: professor
+	Actions:
+		add / delete contest / practice to/from classroom
+
+
+Dynamic React Pages
+	Actors: all website users
+	Actions:
+		Users:
+			get database information and view allowed pages
+
+
+///////////////////////
+## CRITICAL PRIORITY ##
+///////////////////////
+
+Do Contest / Practice
+	Actors: student
+	Actions:
+		access coding interface with prewritten boilerplate code, problem description, hints, and solution
+		run code against test cases at any time from your browser
+
+View Results in Contest / Practice
+	Actors: professor, student
+	Actions:
+		Student:
+			see results of practices available
+		Professor:
+			see results of students in the classroom
+
+
+///////////////////
+## HIGH PRIORITY ##
+///////////////////
+Discuss in Discussion Board
+	Actors: professor, student
+	Actions:
+		write peer-to-peer posts
+		write group discussion posts
+
+/////////////////////
+## MEDIUM PRIORITY ##
+/////////////////////
+Manage Discussion Board
+	Actors: professor
+	Actions:
+		add / delete discussion board in classroom
+		add / remove students from discussion boards
+
+//////////////////
+## LOW PRIORITY ##
+//////////////////
+Manage Student Participation
+	Actors: professor
+	Actions:
+		add / delete student to discussion board
+		delete student messages in discussion board
+		force student to use real name instead of alias in discussion board
+

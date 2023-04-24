@@ -1,0 +1,142 @@
+{
+    "Generic Request" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "The ACTUAL name of the request ex. 'login', 'view_classrooms', etc",
+        "request_no" : "The corresponding request number matching the request_type",
+        "user" : "The user currently logged into the frontend (pass as UNKNOWN if user has not logged in yet)",
+        "testFlag" : "If field is present in an API call, a mock response will be returned for testing purposes",
+        "returns" : "Description of API's response data (not a field needed for calling requests)"
+    },
+
+    "Login" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "login",
+        "request_no" : "1000",
+        "user" : "The user currently logged into the frontend (pass as UNKNOWN if user has not logged in yet)",
+        "username" : "The username to be logged into",
+        "password" : "The password coresponding to username",
+        "returns" : "auth_token from Cognito, statusCode, echoed username to use in 'user' field"
+    },
+
+    "Logout" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "logout",
+        "request_no" : "2000",
+        "user" : "The user currently logged into the frontend (this will be the username that is logged out)",
+        "returns" : "statusCode and username that was logged out"
+    },
+    
+    "View a user's classroom list" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "view_classrooms",
+        "request_no" : "22",
+        "user" : "The user currently logged into the frontend (username will be used to query)",
+        "returns" : "List of classrooms the user is currently a member of"
+    },
+
+    "Get data from a specific classroom" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "get_classroom",
+        "request_no" : "11",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "classroom_id" : "ID of the classroom to query (corresponds to classroom_name in dynamo)",
+        "returns" : "Classroom's entry in Dynamo (Classroom ID, Classroom Name, Professor Name, End Date, list of students, list of problem sets, list of discussion posts)"
+    },
+
+    "View problems from a specific problem set" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "get_problem",
+        "request_no" : "33",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "class_name" : "ID of the classroom containing the problem set",
+        "problem_set" : "Name of the problem set to query (can be either practice or contest)",
+        "returns" : "List of individual problem names and ids that are in the given set "
+    },
+
+    "Get data on a specific problem within a set DEPRECATED use request_no=33 instead" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "get_problem",
+        "request_no" : "6",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "classroom_id" : "ID of the classroom containing the problem set",
+        "problem_set" : "Name of the problem set to query (can be either practice or contest)",
+        "problem_no" : "Problem number to query from the given set",
+        "returns" : "Problem name, id, description, list of hints (if any)"
+    },
+    
+    "Get data on a specific problem set" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "get_problem_set",
+        "request_no" : "7",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "classroom_id" : "ID of the classroom containing the problem set",
+        "problem_set" : "Name of the problem set to query (can be either practice or contest)",
+        "returns" : "Problem set name, id, contest/practice flag, list of problems, and ending date/time if problem set is a contest"
+    },
+
+    "Submit student code to answer problem" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "submit_code",
+        "request_no" : "8",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "classroom_name" : "ID of the classroom containing the problem set (student must be in the classroom)",
+        "problem_set" : "Name of the problem set to query (can be either practice or contest)",
+        "problem_no" : "Problem number to query from the given set",
+        "body" : "student's code (encode in base64)",
+        "returns" : "Status of codebuild, if codebuild is finished response will contain results of the problem's test cases"
+    },
+
+    "Add a problem to an existing set": {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "add_problem",
+        "request_no" : "9",
+        "user" : "The user currently logged into the frontend (must be instructor or admin to make this request)",
+        "classroom_id" : "ID of the classroom containing the problem set (must belong to instructor)",
+        "problem_set" : "Name of the problem set to add onto",
+        "description" : "A description of what students need to submit",
+        "tests" : "list of test cases to check against student's code",
+        "hints" : "list of hints that apply to the problem",
+        "returns" : "Either SUCCESS or FAILED and the updated list of problems"
+    },
+
+    "Create a new classroom" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "add_classroom",
+        "request_no" : "10",
+        "user" : "The user currently logged into the frontend (must be instructor or admin to make this request)",
+        "classroom_name" : "Name of the new classroom (must be unique among the professor's other classrooms)",
+        "returns" : "SUCCESS or FAILED, the id of the new classroom, and the updated list of classrooms for the professor"
+    },
+
+    "Add a student to a classroom's roster" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "add_classroom_student",
+        "request_no" : "11",
+        "user" : "The user currently logged into the frontend (must be instructor or admin to make this request)",
+        "classroom_id" : "ID of the classroom to add a student into (must belong to the user)",
+        "returns" : "SUCCESS or FAILED and the updated students list for the classroom"
+    },
+
+    "Add a new problem set to an existing classroom" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "add_problem_set",
+        "request_no" : "12",
+        "user" : "The user currently logged into the frontend (must be instructor or admin to make this request)",
+        "classroom_id" : "ID of the classroom to add a student into (must belong to the user)",
+        "problem_set" : "Name of the new problem set (must be unique within the classroom)",
+        "end_date" : "Date at which the problem set is no longer active",
+        "returns" : "SUCCESS or FAILED and the updated students list for the classroom"
+    },
+
+    "View problem sets in a specific classroom" : {
+        "request_name" : "Internal cloudwatch logging only, put reason for request here",
+        "request_type" : "view_problem_sets",
+        "request_no" : "13",
+        "user" : "The user currently logged into the frontend (will return empty list if user is not part of specified classroom)",
+        "classroom_id" : "ID of the classroom containing the problem set",
+        "returns" : "list of problem sets (intended for admin/testing, problem set list returned by get_classroom should be used in production)"
+    }
+    
+
+
+}
