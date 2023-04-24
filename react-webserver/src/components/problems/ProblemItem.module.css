@@ -1,0 +1,40 @@
+.item {
+  display: block;
+  font: inherit;
+  margin: 1rem;
+  padding: 0.25rem;
+  width: 100%;
+  color: #253b79;
+}
+
+.content {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.content h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #253b79;
+  color: #e2c2f7;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #253b79;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.actions button:hover,
+.actions button:active {
+  background-color: #e2c2f7;
+  color: #253b79;
+  border-color: #e2c2f7;
+}
